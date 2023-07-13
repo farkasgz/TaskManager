@@ -42,7 +42,8 @@ router.post("/login", async (req, res) => {
       if(bcrypt.compareSync(currUser.password, checkedUser.passwordHash)) {
         const loggedUser = { ...checkedUser._doc }
         delete loggedUser.passwordHash
-        res.render("auths/home")
+        req.session.user = loggedUser;
+        res.redirect("/home")
       } else {
         console.log("Incorrect password or username")
         res.render("login", {errorMessage:"Incorrect password or username"})
