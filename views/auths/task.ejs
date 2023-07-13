@@ -4,3 +4,7 @@
      <li><%= task %></li>
     <% }) %>
 </ul>
+
+<form action="/home/todo/<%- oneTask._id %>/delete" method="POST">
+<button type="submit">DELETE</button>
+</form>

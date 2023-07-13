@@ -42,10 +42,22 @@ router.post("/todo", async (req, res) => {
     }
 })
 
+/*GET one todo page*/
 router.get("/todo/:todoId", async (req, res) => {
     const {todoId} = req.params
     const oneTask = await Todo.findById(todoId)
+    // console.log(oneTask)
     res.render("auths/task", {oneTask})
+})
+
+router.post("/todo/:todoId/delete", async (req, res) => {
+    console.log(req.params)
+    try {
+        await Todo.findByIdAndDelete(req.params.todoId)
+        res.redirect("/home/todo")
+    } catch (error) {
+        console.log(error)
+    }
 })
 
 module.exports = router;
