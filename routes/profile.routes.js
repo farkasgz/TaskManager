@@ -68,8 +68,12 @@ router.post("/todo/:todoId/delete", async (req, res) => {
 //     const {todoId} = req.params
 //     console.log(task, todoId)
 //     try {
-//         await Todo.updateOne({_id: todoId }, { $push: {tasks : task}})
+//         const one = await Todo.findById(todoId)
+//         const newArray = one.tasks.push(task);
+//         console.log(one.tasks)
+//         await Todo.findByIdAndUpdate(todoId, {tasks: newArray})
 //         res.redirect("/home/todo/:todoId")
+
 //     } catch (error) {
 //         console.log(error)
 //     }
