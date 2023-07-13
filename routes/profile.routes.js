@@ -33,7 +33,6 @@ router.get("/todo", async (req, res) => {
 /*POST todo page*/
 router.post("/todo", async (req, res) => {
     const data = req.body;
-    data.tasks = data.tasks.split(",")
     try {
         Todo.create(data)
         res.redirect("/home/todo")
@@ -49,7 +48,7 @@ router.get("/todo/:todoId", async (req, res) => {
     // console.log(oneTask)
     res.render("auths/task", {oneTask})
 })
-
+ /*POST one todo page */
 router.post("/todo/:todoId/delete", async (req, res) => {
     console.log(req.params)
     try {
@@ -59,5 +58,21 @@ router.post("/todo/:todoId/delete", async (req, res) => {
         console.log(error)
     }
 })
+
+/*POST add task*/
+
+/*WORK IN PROGRESS HUUUGE ERROR*/
+
+// router.post("/todo/:todoId/add", async (req, res) => {
+//     const {task} = req.body;
+//     const {todoId} = req.params
+//     console.log(task, todoId)
+//     try {
+//         await Todo.updateOne({_id: todoId }, { $push: {tasks : task}})
+//         res.redirect("/home/todo/:todoId")
+//     } catch (error) {
+//         console.log(error)
+//     }
+// })
 
 module.exports = router;

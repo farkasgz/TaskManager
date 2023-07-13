@@ -1,9 +1,12 @@
 <h1><%= oneTask.title %></h1>
-<ul>
-    <% oneTask.tasks.forEach(task => { %>
-     <li><%= task %></li>
-    <% }) %>
-</ul>
+<form action="/home/todo/<%- oneTask._id %>/add" method="POST">
+    <label>Add task: 
+        <input type="text" name="task">
+    </label>
+    <button type="submit">Add</button>
+</form>
+
+<a href="/home/todo/<%- oneTask._id %>/update">Update</a>
 
 <form action="/home/todo/<%- oneTask._id %>/delete" method="POST">
 <button type="submit">DELETE</button>
