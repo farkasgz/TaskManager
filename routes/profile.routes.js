@@ -1,5 +1,6 @@
 const express = require('express');
 const User = require('../models/User.model');
+const Todo = require('../models/Todo.model');
 const router = express.Router();
 
 /*GET home page*/
@@ -17,9 +18,34 @@ router.get("/schedule", (req, res) => {
     res.render("auths/schedule")
 })
 
+
 /*GET todo page*/
-router.get("/todo", (req, res) => {
-    res.render("auths/todo")
+router.get("/todo", async (req, res) => {
+    try {
+        const allTasks = await Todo.find()
+        res.render("auths/todo", {allTasks})
+    } catch (error) {
+        console.log(error)
+    }
+    
+})
+
+/*POST todo page*/
+router.post("/todo", async (req, res) => {
+    const data = req.body;
+    data.tasks = data.tasks.split(",")
+    try {
+        Todo.create(data)
+        res.redirect("/home/todo")
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+router.get("/todo/:todoId", async (req, res) => {
+    const {todoId} = req.params
+    const oneTask = await Todo.findById(todoId)
+    res.render("auths/task", {oneTask})
 })
 
 module.exports = router;

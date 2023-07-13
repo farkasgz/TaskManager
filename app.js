@@ -26,6 +26,7 @@ const indexRoutes = require('./routes/index.routes')
 app.use('/', indexRoutes)
 
 const profileRouts = require("./routes/profile.routes")
+const {isLoggedIn} = require("./middlewares/guard.middleware")
 app.use("/home", profileRouts);
 
 

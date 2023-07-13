@@ -1,2 +1,21 @@
 <h1>Todo</h1>
 <a href="/home">Home page</a>
+<form action="/home/todo" method="post">
+    <label>Title: 
+        <input type="text" name="title">
+    </label>
+    <label>Tasks: 
+        <textarea name="tasks" cols="30" rows="10"></textarea>
+    </label>
+    <label>Deadline: 
+        <input type="date" name="deadline">
+    </label>
+    <button type="submit">Make Todo</button>
+</form>
+
+<div>
+    <% allTasks.forEach(task => { %>
+     <h3><a href="/home/todo/<%= task._id %>"><%= task.title %></a></h3>
+     <p><%= task.deadline %></p>
+    <% }) %>
+</div>
