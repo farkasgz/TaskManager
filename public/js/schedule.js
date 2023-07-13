@@ -1,6 +1,6 @@
 const currentDate = document.querySelector(".current-date");
-daysTag = document.querySelector(".days");
-prevNextIcon = document.querySelectorAll(".icons span");
+const daysTag = document.querySelector(".days");
+const prevNextIcon = document.querySelectorAll(".icons span");
 
 let date = new Date();
 let currYear = date.getFullYear();
@@ -49,3 +49,11 @@ prevNextIcon.forEach(icon => {
         renderCalendar();
     })
 });
+
+const dayButtons = document.querySelectorAll(".days li");
+
+dayButtons.forEach(icon => {
+    icon.addEventListener("click", () => {
+        location.href = "/home"
+    })
+})
