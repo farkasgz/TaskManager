@@ -6,6 +6,12 @@
     <button type="submit">Add</button>
 </form>
 
+<ul>
+    <% oneTask.tasks.forEach(task => { %>
+     <li><%= task %></li>
+    <% }) %>
+</ul>
+
 
 <form action="/home/todo/<%- oneTask._id %>/delete" method="POST">
 <button type="submit">DELETE</button>
