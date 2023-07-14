@@ -22,9 +22,15 @@ router.post("/signup", async (req, res) => {
 
   try {
     await User.create(data)
-    res.redirect("/");
+    res.redirect("/login");
   } catch (error) {
-    console.log(error)
+    console.log("This is the key", error.keyPattern)
+    const key = Object.keys(error.keyPattern)
+    if (key[0] === "username") {
+      res.render("signup", {errorMessage: "Username already in use"})
+    } else if (key[0] === "email") {
+      res.render("signup", {errorMessage: "Email already in use"})
+    }
   }
 })
 

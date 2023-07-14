@@ -8,6 +8,11 @@ router.get("/", (req, res) => {
     res.render("auths/home", {user: req.session.user});
 })
 
+router.post("/logout", (req, res) => {
+    delete req.session
+    res.redirect("/login")
+})
+
 /* GET profile page*/
 router.get("/profile", (req, res) => {
     res.render("auths/profile", {user: req.session.user});
@@ -68,8 +73,6 @@ router.post("/todo/:todoId/delete", async (req, res) => {
 })
 
 /*POST add task*/
-
-/*WORK IN PROGRESS HUUUGE ERROR*/
 
 router.post("/todo/:todoId/add", async (req, res) => {
     const {task} = req.body;

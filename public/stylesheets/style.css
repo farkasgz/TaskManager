@@ -1,12 +1,266 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a {
-  color: #00b7ff;
+.homepage {
+  background-color: #deeffa;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-h1 {
-  color: 15px;
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
 }
+
+.title h1 {
+  font-size: 3.5rem;
+  letter-spacing: 0.2rem;
+  padding-top: 2rem;
+  color: #1464A5;
+}
+
+.title p {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+.auth {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.auth a {
+  color: #1464A5;
+}
+
+.auth a:first-of-type {
+  text-decoration: none;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.8) 0%, rgba(29, 169, 214, 0.8) 70%, rgba(29, 169, 214, 0) 100%);
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  animation: bubble-float 2.8s ease-in-out infinite;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.auth a:last-of-type {
+  text-decoration: none;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.8) 0%, rgba(29, 169, 214, 0.8) 70%, rgba(29, 169, 214, 0) 100%);
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  animation: bubble-float 3s ease-in-out infinite;
+  transition: background-color 0.3s, transform 0.5s;
+}
+
+.auth a:hover {
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.6) 0%, rgba(11, 64, 111, 0.6) 70%, rgba(11, 64, 111, 0) 100%);
+  transform: scale(1.05);
+}
+
+@keyframes bubble-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.login-page {
+  background-color: #deeffa;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-title {
+  text-align: center;
+  font-size: 3.5rem;
+  letter-spacing: 0.2rem;
+  color: #1464A5;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.login-label {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.login-input {
+  width: 300px;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #1464A5;
+  font-size: 1.2rem;
+}
+
+.login-button {
+  background-color: #1464A5;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #0b406f;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+.signup-title {
+  text-align: center;
+  font-size: 3.5rem;
+  letter-spacing: 0.2rem;
+  color: #1464A5;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.signup-label {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.signup-input {
+  width: 300px;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #1464A5;
+  font-size: 1.2rem;
+}
+
+.signup-button {
+  background-color: #1464A5;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signup-button:hover {
+  background-color: #0b406f;
+}
+
+.account-homepage {
+  height: 100vh;
+  background-color: #deeffa;
+}
+
+.acc-header {
+  font-size: 4rem;
+  color: #1464A5;
+}
+
+.acc-navbar {
+  height: 3rem;
+  /* background-color: #c9e7fa; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.logout-btn {
+  margin-right: 1.6rem;
+  font-size: 1.6rem;
+  background-color: #1464A5;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.2rem 1rem;
+}
+
+.content {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.acc-btns {
+  text-decoration: none;
+  color: #1464A5;
+  background-color: #bfe3fa;
+  font-size: 2rem;
+  border: 0.5px solid white;
+  padding: 4rem 7rem;
+  border-radius: 8px;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.acc-btns:hover {
+  background: #1464A5;
+  color: #fff;
+}
+
+.acc-btns:hover + .acc-btns {
+  background: #bfe3fa;
+  color: #1464A5;
+}
+
+.img-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+
+
+
+
+
+
+
