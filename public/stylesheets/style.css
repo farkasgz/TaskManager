@@ -193,6 +193,11 @@
   background-color: #deeffa;
 }
 
+.acc-header {
+  font-size: 4rem;
+  color: #1464A5;
+}
+
 .acc-navbar {
   height: 3rem;
   /* background-color: #c9e7fa; */
@@ -223,6 +228,38 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.acc-btns {
+  text-decoration: none;
+  color: #1464A5;
+  background-color: #bfe3fa;
+  font-size: 2rem;
+  border: 0.5px solid white;
+  padding: 4rem 7rem;
+  border-radius: 8px;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.acc-btns:hover {
+  background: #1464A5;
+  color: #fff;
+}
+
+.acc-btns:hover + .acc-btns {
+  background: #bfe3fa;
+  color: #1464A5;
+}
+
+.img-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+
+
+
 
 
 
