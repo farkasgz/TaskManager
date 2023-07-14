@@ -63,20 +63,16 @@ router.post("/todo/:todoId/delete", async (req, res) => {
 
 /*WORK IN PROGRESS HUUUGE ERROR*/
 
-// router.post("/todo/:todoId/add", async (req, res) => {
-//     const {task} = req.body;
-//     const {todoId} = req.params
-//     console.log(task, todoId)
-//     try {
-//         const one = await Todo.findById(todoId)
-//         const newArray = one.tasks.push(task);
-//         console.log(one.tasks)
-//         await Todo.findByIdAndUpdate(todoId, {tasks: newArray})
-//         res.redirect("/home/todo/:todoId")
-
-//     } catch (error) {
-//         console.log(error)
-//     }
-// })
+router.post("/todo/:todoId/add", async (req, res) => {
+    const {task} = req.body;
+    const {todoId} = req.params
+    console.log(task, todoId)
+    try {
+        await Todo.findByIdAndUpdate({_id: todoId}, {$push: {tasks: task}})
+        res.redirect(`/home/todo/${todoId}`)
+    } catch (error) {
+        console.log(error)
+    }
+})
 
 module.exports = router;
