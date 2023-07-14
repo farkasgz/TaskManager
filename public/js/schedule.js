@@ -6,6 +6,12 @@ let date = new Date();
 let currYear = date.getFullYear();
 let currMonth = date.getMonth();
 
+//console.log(new Date(2023,6,12));
+
+function twoDigit(num) {
+    return `${Math.floor(num/10)}${num%10}`;
+}
+
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 const renderCalendar = () => {
@@ -31,6 +37,13 @@ const renderCalendar = () => {
 
     currentDate.innerText = `${months[currMonth]} ${currYear}`;
     daysTag.innerHTML = liTag;
+
+    const dayButtons = document.querySelectorAll(".days li");
+    dayButtons.forEach(icon => {
+        icon.addEventListener("click", () => {
+            location.href = `/home/schedule/${currYear}${twoDigit(currMonth+1)}${twoDigit(icon.innerText)}`;
+        })
+    })
 }
 renderCalendar();
 
@@ -49,11 +62,3 @@ prevNextIcon.forEach(icon => {
         renderCalendar();
     })
 });
-
-const dayButtons = document.querySelectorAll(".days li");
-
-dayButtons.forEach(icon => {
-    icon.addEventListener("click", () => {
-        location.href = "/home"
-    })
-})
