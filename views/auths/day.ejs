@@ -1,2 +1,9 @@
 <h1><%= day.toLocaleDateString(undefined, options) %></h1>
 <h2>ToDos: </h2>
+
+<div>
+    <% relevantTasks.forEach(task => { %>
+     <h3><a href="/home/todo/<%= task._id %>"><%= task.title %></a></h3>
+     <p><%= task.deadline %></p>
+    <% }) %>
+</div>
