@@ -188,6 +188,41 @@
   background-color: #0b406f;
 }
 
+.account-homepage {
+  height: 100vh;
+  background-color: #deeffa;
+}
+
+.acc-navbar {
+  height: 3rem;
+  /* background-color: #c9e7fa; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.logout-btn {
+  margin-right: 1.6rem;
+  font-size: 1.6rem;
+  background-color: #1464A5;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.2rem 1rem;
+}
+
+.content {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
 
 
 

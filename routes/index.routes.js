@@ -22,7 +22,7 @@ router.post("/signup", async (req, res) => {
 
   try {
     await User.create(data)
-    res.redirect("/");
+    res.redirect("/login");
   } catch (error) {
     console.log("This is the key", error.keyPattern)
     const key = Object.keys(error.keyPattern)
