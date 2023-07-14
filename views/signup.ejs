@@ -1,14 +1,19 @@
-<h1>Signup Page</h1><h1>Sign Up</h1>
+<div class="login-page">
+<h1 class="signup-title">Sign Up</h1>
 
-<form action="/signup" method="POST">
-    <label>Username:
-        <input type="text" name="username" required>
+<form action="/signup" method="POST" class="signup-form">
+    <label class="signup-label">Username:
+        <input type="text" name="username" required class="signup-input">
     </label>
-    <label>E-mail: 
-        <input type="email" name="email" required>
+    <label class="signup-label">E-mail: 
+        <input type="email" name="email" required class="signup-input">
     </label>
-    <label>Password: 
-        <input type="password" name="password" required>
+    <label class="signup-label">Password: 
+        <input type="password" name="password" required class="signup-input">
     </label>
-    <button type="submit">Sign Up</button>
+    <button type="submit" class="signup-button">Sign Up</button>
 </form>
+<% if (typeof errorMessage !== "undefined") { %>
+    <p class="error"><%= errorMessage %></p>
+  <% } %>
+</div>
