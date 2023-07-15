@@ -1,18 +1,27 @@
-<h1>Todo</h1>
-<a href="/home">Home page</a>
-<form action="/home/todo" method="post">
-    <label>Title: 
-        <input type="text" name="title">
-    </label>
-    <label>Deadline: 
-        <input type="date" name="deadline">
-    </label>
-    <button type="submit">Make Todo</button>
-</form>
-
-<div>
-    <% allTasks.forEach(task => { %>
-     <h3><a href="/home/todo/<%= task._id %>"><%= task.title %></a></h3>
-     <p><%= task.deadline %></p>
-    <% }) %>
+<div class="todo-page">
+    <nav class="todo-navbar">
+        <a href="/home" class="todo-nav-btn">Home page</a>
+        <a href="/home/schedule" class="todo-nav-btn">Schedule Page</a>
+    </nav>
+    <main class="todo-content">
+    <div class="header-container">
+        <h1 class="todo-header">ToDo</h1>
+    <form action="/home/todo" method="post" class="todo-form">
+        <label class="todo-label">Title: 
+            <input type="text" name="title" class="input-field" required>
+        </label>
+        <label class="todo-label">Deadline: 
+            <input type="date" name="deadline" class="input-field" required>
+        </label>
+        <button type="submit" class="make-todo-btn">Make Todo</button>
+    </form>
+    </div>
+    <div class="task-list">
+            <% allTasks.forEach(task => { %>
+            <div class="one-todo">
+            <h3 class="todo-header-three"><a href="/home/todo/<%= task._id %>" class="task-btn"><%= task.title %></a></h3>
+            </div>
+            <% }) %>
+    </div>
+    </main>
 </div>

@@ -48,14 +48,13 @@ router.get("/todo", async (req, res) => {
     } catch (error) {
         console.log(error)
     }
-    
 })
 
 /*POST todo page*/
 router.post("/todo", async (req, res) => {
     const data = req.body;
     try {
-        Todo.create(data)
+        await Todo.create(data)
         res.redirect("/home/todo")
     } catch (error) {
         console.log(error)
