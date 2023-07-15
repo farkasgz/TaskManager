@@ -43,7 +43,8 @@ router.get("/schedule/:date", async (req, res) => {
 /*GET todo page*/
 router.get("/todo", async (req, res) => {
     try {
-        const allTasks = await Todo.find()
+        const user = await User.findById(req.session.user._id).populate("tasks")
+        const allTasks = user.tasks;
         res.render("auths/todo", {allTasks})
     } catch (error) {
         console.log(error)
@@ -54,7 +55,10 @@ router.get("/todo", async (req, res) => {
 router.post("/todo", async (req, res) => {
     const data = req.body;
     try {
-        await Todo.create(data)
+        const createdTodo = await Todo.create(data)
+        const user = await User.findById(req.session.user._id);
+        user.tasks.push(createdTodo._id);
+        await user.save();
         res.redirect("/home/todo")
     } catch (error) {
         console.log(error)

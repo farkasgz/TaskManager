@@ -19,7 +19,13 @@ const userSchema = new Schema(
     passwordHash: {
       type: String,
       required: true
-    }
+    },
+    tasks: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Todo"
+      }
+    ]
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`    

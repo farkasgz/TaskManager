@@ -7,8 +7,7 @@ const todoSchema = new Schema(
             required: true        
         },
         tasks: {
-            type: [String],
-            required: true
+            type: [String]
         },
         deadline: {
             type: Date,  
