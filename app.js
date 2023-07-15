@@ -21,6 +21,12 @@ const projectName = 'taskManager'
 
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`
 
+//To handle navbar conditional
+app.use((req, res, next) => {
+    res.locals.user = req.user;
+    next();
+});
+
 // 👇 Start handling routes here
 const indexRoutes = require('./routes/index.routes')
 app.use('/', indexRoutes)

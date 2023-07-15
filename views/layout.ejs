@@ -7,9 +7,18 @@
     <title><%= appTitle %></title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
-
+  
   <body>
-    
+    <% if (user) {%>
+      <nav>
+        <ul>
+          <li><a href="/home">Home</a></li>
+          <li><a href="/home/profile"></a>Profile</li>
+          <li><a href="/home/schedule"></a>Schedule</li>
+          <a href="/home/todo">Todo</a>
+        </ul>
+      </nav>
+    <% } %>
     <%- body %>
 
     <script src="/js/script.js"></script>

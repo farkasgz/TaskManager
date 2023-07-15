@@ -27,10 +27,12 @@ router.get("/schedule", (req, res) => {
 router.get("/schedule/:date", async (req, res) => {
     const dateNumber = new Number(req.params.date);
     const day = new Date(Math.floor(dateNumber/10000), Math.floor(dateNumber/100)%100-1, dateNumber%100);
+    const dayAfter = new Date(day);
+    dayAfter.setDate(dayAfter.getDate()+1);
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
     try {
-        const relevantTasks = await Todo.find({ $and: [{createdAt: {$lte: day}}, {deadline: {$gte: day}}] })
+        const relevantTasks = await Todo.find({ $and: [{createdAt: {$lte: dayAfter}}, {deadline: {$gte: day}}] })
         res.render("auths/day", {day, options, relevantTasks});
     } catch (error) {
         console.log(error)
