@@ -49,6 +49,7 @@ router.post("/login", async (req, res) => {
         const loggedUser = { ...checkedUser._doc }
         delete loggedUser.passwordHash
         req.session.user = loggedUser;
+        console.log(req.session.user)
         res.redirect("/home")
       } else {
         console.log("Incorrect password or username")
