@@ -10,13 +10,14 @@
   
   <body>
     <% if (user) {%>
-      <nav>
-        <ul>
-          <li><a href="/home">Home</a></li>
-          <li><a href="/home/profile"></a>Profile</li>
-          <li><a href="/home/schedule"></a>Schedule</li>
-          <a href="/home/todo">Todo</a>
-        </ul>
+      <nav class="todo-navbar" style="background-color: #deeffa;">
+          <a href="/home" class="todo-nav-btn">Home</a></li>
+          <a href="/home/profile" class="todo-nav-btn">Profile</a></li>
+          <a href="/home/schedule" class="todo-nav-btn">Schedule</a></li>
+          <a href="/home/todo" class="todo-nav-btn">Todo</a>
+          <form action="/home/logout" method="POST" class="logout-form">
+            <button type="submit" class="logout-btn">Logout</button>
+          </form>
       </nav>
     <% } %>
     <%- body %>

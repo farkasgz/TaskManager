@@ -365,6 +365,67 @@
   text-decoration: underline;
 }
 
+.one-task-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #deeffa;
+}
+
+.one-task-header {
+  font-size: 4rem;
+  color: #1464A5;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.add-task-label {
+  font-size: 2rem;
+  color: #1464A5;
+}
+
+.add-task-input {
+  font-size: 2rem;
+  border-color: #1464A5;
+  border-radius: 5px;
+}
+
+.add-task-btn {
+  font-size: 2rem;
+  border-radius: 5px;
+  padding: 0 0.5rem;
+  background-color: #1464A5;
+  color: #deeffa;
+}
+
+.add-task-btn:hover {
+  color: #0b406f;
+}
+
+.all-task-list {
+  width: 90%;
+}
+
+.task-space {
+  width: 90%;
+  height: 70%;
+}
+
+.added-task {
+  font-size: 1.6rem;
+  color: #1464A5;
+}
+
+.delete-todo-btn {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  padding: 0.3rem 1rem;
+  color: #deeffa;
+  background-color: #1464A5;
+}
+
 
 
 

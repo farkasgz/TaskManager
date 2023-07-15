@@ -1,18 +1,21 @@
-<h1><%= oneTask.title %></h1>
-<form action="/home/todo/<%- oneTask._id %>/add" method="POST">
-    <label>Add task: 
-        <input type="text" name="task">
-    </label>
-    <button type="submit">Add</button>
-</form>
-
-<ul>
-    <% oneTask.tasks.forEach(task => { %>
-     <li><%= task %></li>
-    <% }) %>
-</ul>
-
-
-<form action="/home/todo/<%- oneTask._id %>/delete" method="POST">
-<button type="submit">DELETE</button>
-</form>
+<div class="one-task-page">
+    <div class="one-task-top">
+        <h1 class="one-task-header"><%= oneTask.title %></h1>
+        <form class="add-task-from" action="/home/todo/<%- oneTask._id %>/add" method="POST">
+            <label class="add-task-label">Add task: 
+                <input type="text" name="task" class="add-task-input">
+            </label>
+            <button type="submit" class="add-task-btn">Add</button>
+        </form>
+    </div>
+    <div class="task-space">
+    <ul class="all-task-list">
+        <% oneTask.tasks.forEach(task => { %>
+        <li class="added-task"><%= task %></li>
+        <% }) %>
+    </ul>
+    </div>  
+    <form action="/home/todo/<%- oneTask._id %>/delete" method="POST">
+        <button type="submit" class="delete-todo-btn">DELETE</button>
+    </form>
+</div>
