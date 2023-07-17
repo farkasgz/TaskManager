@@ -365,6 +365,20 @@
   text-decoration: underline;
 }
 
+.go-back-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  text-decoration: none;
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: #1464A5;
+}
+
+.go-back-btn:hover {
+  text-decoration: underline;
+}
+
 .one-task-page {
   height: 100vh;
   display: flex;
@@ -404,18 +418,40 @@
   color: #0b406f;
 }
 
-.all-task-list {
-  width: 90%;
-}
-
 .task-space {
   width: 90%;
   height: 70%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.all-task-list {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+  list-style: disc;
 }
 
 .added-task {
   font-size: 1.6rem;
-  color: #1464A5;
+  color: #000;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.crossed-task {
+  font-size: 1.6rem;
+  color: #000;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  text-decoration: line-through;
+}
+
+.added-task:hover {
+  cursor: pointer;
 }
 
 .delete-todo-btn {

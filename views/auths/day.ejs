@@ -2,8 +2,8 @@
 <h2>ToDos: </h2>
 
 <div>
-    <% relevantTasks.forEach(task => { %>
-     <h3><a href="/home/todo/<%= task._id %>"><%= task.title %></a></h3>
-     <p><%= task.deadline %></p>
+    <% allTasks.forEach(todo => { %>
+     <h3><a href="/home/todo/<%= todo._id %>"><%= todo.title %></a></h3>
+     <p><%= todo.deadline %></p>
     <% }) %>
 </div>

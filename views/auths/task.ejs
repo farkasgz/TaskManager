@@ -1,5 +1,6 @@
 <div class="one-task-page">
     <div class="one-task-top">
+        <a href="/home/todo" class="go-back-btn">Go Back</a>
         <h1 class="one-task-header"><%= oneTask.title %></h1>
         <form class="add-task-from" action="/home/todo/<%- oneTask._id %>/add" method="POST">
             <label class="add-task-label">Add task: 

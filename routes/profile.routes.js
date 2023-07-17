@@ -32,8 +32,11 @@ router.get("/schedule/:date", async (req, res) => {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
     try {
+        const user = await User.findById(req.session.user._id).populate("tasks")
+        const allTasks = user.tasks
+        console.log(user.tasks)
         const relevantTasks = await Todo.find({ $and: [{createdAt: {$lte: dayAfter}}, {deadline: {$gte: day}}] })
-        res.render("auths/day", {day, options, relevantTasks});
+        res.render("auths/day", {day, options, relevantTasks, allTasks});
     } catch (error) {
         console.log(error)
     }
