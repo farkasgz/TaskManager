@@ -3,7 +3,7 @@
     <h2>ToDos: </h2>
 
     <div id="dailyTodo">
-        <% relevantTasks.forEach(task => { %>
+        <% userTasks.forEach(task => { %>
         <div>
             <h3><a href="/home/todo/<%= task._id %>"><%= task.title %></a></h3>
             <p><%= task.deadline.toLocaleDateString(undefined, options) %></p>

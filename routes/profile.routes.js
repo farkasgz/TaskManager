@@ -34,11 +34,14 @@ router.get("/schedule/:date", async (req, res) => {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
     try {
-        const user = await User.findById(req.session.user._id).populate("tasks")
-        const allTasks = user.tasks
-        const relevantTasks = await Todo.find({ $and: [{createdAt: {$lte: dayAfter}}, {deadline: {$gte: day}}] })
-        console.log(relevantTasks)
-        res.render("auths/day", {day, options, relevantTasks, allTasks});
+        const user = await User.findById(req.session.user._id).populate("tasks").select("tasks");
+        const userTasks = [];
+        user.tasks.forEach(task => {
+            if(task.createdAt < dayAfter && task.deadline > day){
+                userTasks.push(task);
+            }
+        })
+        res.render("auths/day", {day, options, userTasks});
     } catch (error) {
         console.log(error)
     }
