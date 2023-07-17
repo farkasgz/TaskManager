@@ -8,13 +8,15 @@
 
 body {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 5em;
     min-height: 100vh;
     background: #deeffa;
 }
 
 .wrapper {
+    align-self: center;
     width: 450px;
     background: white;
     border-radius: 10px;

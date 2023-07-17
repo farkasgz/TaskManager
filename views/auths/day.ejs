@@ -1,9 +1,13 @@
-<h1><%= day.toLocaleDateString(undefined, options) %></h1>
-<h2>ToDos: </h2>
+<div class="daily">
+    <h1><%= day.toLocaleDateString(undefined, options) %></h1>
+    <h2>ToDos: </h2>
 
-<div>
-    <% allTasks.forEach(todo => { %>
-     <h3><a href="/home/todo/<%= todo._id %>"><%= todo.title %></a></h3>
-     <p><%= todo.deadline %></p>
-    <% }) %>
+    <div id="dailyTodo">
+        <% relevantTasks.forEach(task => { %>
+        <div>
+            <h3><a href="/home/todo/<%= task._id %>"><%= task.title %></a></h3>
+            <p><%= task.deadline.toLocaleDateString(undefined, options) %></p>
+        </div>
+        <% }) %>
+    </div>
 </div>
