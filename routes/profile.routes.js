@@ -20,7 +20,7 @@ router.get("/profile", (req, res) => {
 
 /* GET schedule page*/
 router.get("/schedule", (req, res) => {
-    res.render("auths/schedule")
+    res.render("auths/schedule", {user: req.session.user})
 })
 
 /* GET day page*/
