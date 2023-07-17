@@ -3,13 +3,15 @@ const User = require('../models/User.model');
 const Todo = require('../models/Todo.model');
 const router = express.Router();
 
+
 /*GET home page*/
 router.get("/", (req, res) => {
     res.render("auths/home", {user: req.session.user});
 })
 
-router.post("/logout", (req, res) => {
-    delete req.session
+router.post("/logout", async (req, res) => {
+    req.session.destroy()
+    console.log(req.session)
     res.redirect("/login")
 })
 
@@ -34,8 +36,8 @@ router.get("/schedule/:date", async (req, res) => {
     try {
         const user = await User.findById(req.session.user._id).populate("tasks")
         const allTasks = user.tasks
-        console.log(user.tasks)
         const relevantTasks = await Todo.find({ $and: [{createdAt: {$lte: dayAfter}}, {deadline: {$gte: day}}] })
+        console.log(relevantTasks)
         res.render("auths/day", {day, options, relevantTasks, allTasks});
     } catch (error) {
         console.log(error)
