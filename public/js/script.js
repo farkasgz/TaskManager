@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   allTasks.forEach(task => {
     task.addEventListener("click", async () => {
+      task.classList.toggle("crossed-task");
       try {
         await fetch(`/home/task/${task.id}`, {method: 'POST'});
       } catch (error) {

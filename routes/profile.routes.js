@@ -112,7 +112,7 @@ router.post("/task/:taskId", async (req, res) => {
     try {
         const task = await Task.findById({_id: taskId});
         const updatedBoolean = !task.completed;
-        console.log(updatedBoolean);
+        //console.log(updatedBoolean);
         await Task.findByIdAndUpdate({_id: taskId}, {completed: updatedBoolean})
     } catch (error) {
         console.log(error);
