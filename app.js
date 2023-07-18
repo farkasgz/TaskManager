@@ -33,7 +33,7 @@ app.use('/', indexRoutes)
 
 const profileRouts = require("./routes/profile.routes")
 const {isLoggedIn} = require("./middlewares/guard.middleware")
-app.use("/home", profileRouts);
+app.use("/home", isLoggedIn, profileRouts);
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
