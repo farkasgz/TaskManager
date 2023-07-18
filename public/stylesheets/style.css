@@ -111,8 +111,10 @@ body {
 .login-form {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   margin-top: 2rem;
+  height: 250px;
 }
 
 .login-label {
@@ -158,8 +160,10 @@ body {
 }
 
 .signup-form {
+  height: 300px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   margin-top: 2rem;
 }
@@ -194,11 +198,11 @@ body {
 
 .back-button {
   text-decoration: none;
+  border: 2px solid gray;
   background-color: #1464A5;
   color: #fff;
   border-radius: 4px;
-  padding: 0.5rem 1rem;
-  margin: 1rem;
+  padding: 0.5rem 1.6rem;
   font-size: 1.2rem;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -363,22 +367,23 @@ body {
 }
 
 .one-todo {
+  text-decoration: none;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.8) 0%, rgba(29, 169, 214, 0.8) 70%, rgba(29, 169, 214, 0) 100%);
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
-  height: 18em;
-  width: 18em;
-  background-color: #bfe3fa;
-  border-radius: 8px;
-  border: 0.5px solid white;
-  margin-bottom: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  animation: bubble-float 2.8s ease-in-out infinite;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .task-btn {
   text-decoration: none;
   color: #1464A5;
-  background-color: #bfe3fa
+  /* background-color: #bfe3fa */
 }
 
 .task-btn:hover {

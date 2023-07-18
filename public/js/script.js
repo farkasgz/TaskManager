@@ -9,5 +9,5 @@ document.addEventListener("DOMContentLoaded", () => {
       task.classList.toggle("crossed-task");
     })
   })
-  
+
 });
