@@ -213,7 +213,7 @@ body {
 }
 
 .account-homepage {
-  height: 100vh;
+  height: 90vh;
   background-color: #deeffa;
 }
 
@@ -237,6 +237,10 @@ body {
   color: #fff;
   border-radius: 4px;
   padding: 0.2rem 1rem;
+}
+
+.logout-btn:hover {
+  color: #8dc9f2;
 }
 
 .content {

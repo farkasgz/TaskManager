@@ -4,7 +4,7 @@
         <h1 class="one-task-header"><%= oneTask.title %></h1>
         <form class="add-task-from" action="/home/todo/<%- oneTask._id %>/add" method="POST">
             <label class="add-task-label">Add task: 
-                <input type="text" name="task" class="add-task-input">
+                <input type="text" name="task" class="add-task-input" autofocus>
             </label>
             <button type="submit" class="add-task-btn">Add</button>
         </form>
