@@ -7,8 +7,7 @@ const todoSchema = new Schema(
             required: true        
         },
         tasks: {
-            type: [Schema.Types.ObjectId],
-            ref: "Task"
+            type: [String]
         },
         deadline: {
             type: Date,  
@@ -19,9 +18,9 @@ const todoSchema = new Schema(
       // this second object adds extra properties: `createdAt` and `updatedAt`    
       timestamps: true
     }
-);
+  );
   
-const Todo = model("Todo", todoSchema);
+  const Todo = model("Todo", todoSchema);
   
-module.exports = Todo;
+  module.exports = Todo;
   

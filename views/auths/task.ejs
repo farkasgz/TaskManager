@@ -12,9 +12,7 @@
     <div class="task-space">
     <ul class="all-task-list">
         <% oneTask.tasks.forEach(task => { %>
-        <li class="added-task <% if(task.completed) {%>
-            crossed-task
-            <% } %>" id="<%= task._id %>"><%= task.title %></li>
+        <li class="added-task"><%= task %></li>
         <% }) %>
     </ul>
     </div>  

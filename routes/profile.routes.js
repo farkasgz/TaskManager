@@ -1,7 +1,6 @@
 const express = require('express');
 const User = require('../models/User.model');
 const Todo = require('../models/Todo.model');
-const Task = require('../models/Task.model');
 const router = express.Router();
 
 
@@ -72,7 +71,7 @@ router.post("/todo", async (req, res) => {
 /*GET one todo page*/
 router.get("/todo/:todoId", async (req, res) => {
     const {todoId} = req.params
-    const oneTask = await Todo.findById(todoId).populate("tasks")
+    const oneTask = await Todo.findById(todoId)
     // console.log(oneTask)
     res.render("auths/task", {oneTask})
 })
@@ -94,23 +93,10 @@ router.post("/todo/:todoId/add", async (req, res) => {
     const {todoId} = req.params
     console.log(task, todoId)
     try {
-        const createdTask = await Task.create({title: task});
-        await Todo.findByIdAndUpdate({_id: todoId}, {$push: {tasks: createdTask._id}})
+        await Todo.findByIdAndUpdate({_id: todoId}, {$push: {tasks: task}})
         res.redirect(`/home/todo/${todoId}`)
     } catch (error) {
         console.log(error)
-    }
-})
-
-router.post("/task/:taskId", async (req, res) => {
-    const {taskId} = req.params;
-    try {
-        const task = await Task.findById({_id: taskId});
-        const updatedBoolean = !task.completed;
-        //console.log(updatedBoolean);
-        await Task.findByIdAndUpdate({_id: taskId}, {completed: updatedBoolean})
-    } catch (error) {
-        console.log(error);
     }
 })
 
