@@ -1,12 +1,13 @@
 <div class="daily">
+    <a href="/home/schedule" class="go-back-btn">Go Back</a>
     <h1><%= day.toLocaleDateString(undefined, options) %></h1>
     <h2>ToDos: </h2>
 
     <div id="dailyTodo">
         <% userTasks.forEach(task => { %>
-        <div>
-            <h3><a href="/home/todo/<%= task._id %>"><%= task.title %></a></h3>
-            <p><%= task.deadline.toLocaleDateString(undefined, options) %></p>
+        <div class="one-task-card">
+            <h3><a class="daily-todo-title" href="/home/todo/<%= task._id %>"><%= task.title %></a></h3>
+            <p class="daily-deadline"><%= task.deadline.toLocaleDateString(undefined, options) %></p>
         </div>
         <% }) %>
     </div>

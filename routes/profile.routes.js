@@ -1,6 +1,7 @@
 const express = require('express');
 const User = require('../models/User.model');
 const Todo = require('../models/Todo.model');
+const { isLoggedIn } = require('../middlewares/guard.middleware');
 const router = express.Router();
 
 
@@ -13,11 +14,6 @@ router.post("/logout", async (req, res) => {
     req.session.destroy()
     console.log(req.session)
     res.redirect("/login")
-})
-
-/* GET profile page*/
-router.get("/profile", (req, res) => {
-    res.render("auths/profile", {user: req.session.user});
 })
 
 /* GET schedule page*/
