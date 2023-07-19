@@ -73,9 +73,10 @@ router.post("/todo", async (req, res) => {
 router.get("/todo/:todoId", async (req, res) => {
     const {todoId} = req.params
     const oneTask = await Todo.findById(todoId).populate("tasks")
-    // console.log(oneTask)
+    console.log(oneTask.deadline)
     res.render("auths/task", {oneTask})
 })
+
  /*POST one todo page */
 router.post("/todo/:todoId/delete", async (req, res) => {
     console.log(req.params)
@@ -86,6 +87,25 @@ router.post("/todo/:todoId/delete", async (req, res) => {
         console.log(error)
     }
 })
+
+router.post("/todo/:todoId", async (req, res) => {
+    const { todoId } = req.params;
+    const { deadline } = req.body;
+  
+    try {
+      const todoTask = await Todo.findById(todoId);
+      if (!todoTask) {
+        return res.status(404).send("Todo task not found");
+      }
+      todoTask.deadline = deadline;
+      await todoTask.save();
+  
+      res.redirect(`/home/todo/${todoId}`);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("An error occurred while updating the deadline");
+    }
+  });
 
 /*POST add task*/
 

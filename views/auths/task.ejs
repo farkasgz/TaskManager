@@ -8,6 +8,13 @@
             </label>
             <button type="submit" class="add-task-btn">Add</button>
         </form>
+        <form class="update-deadline-form" action="/home/todo/<%- oneTask._id %>" method="POST">
+            <label class="add-task-label">Update deadline: 
+                <input class="input-field" type="date" name="deadline" value="<%= oneTask.deadline.toISOString().substr(0, 10) %>">
+            </label>
+            <button type="submit" class="add-task-btn">Update Deadline</button>
+        </form>
+        
     </div>
     <div class="task-space">
     <ul class="all-task-list">
