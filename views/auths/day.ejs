@@ -7,7 +7,7 @@
         <% userTasks.forEach(task => { %>
         <div class="one-task-card">
             <h3><a class="daily-todo-title" href="/home/todo/<%= task._id %>"><%= task.title %></a></h3>
-            <p class="daily-deadline"><%= task.deadline.toLocaleDateString(undefined, options) %></p>
+            <p class="daily-deadline">Deadline: <%= task.deadline.toLocaleDateString(undefined, options) %></p>
         </div>
         <% }) %>
     </div>
