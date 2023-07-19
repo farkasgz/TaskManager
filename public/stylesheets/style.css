@@ -6,6 +6,7 @@
 
 body {
   background-color: #deeffa;
+  font-family: 'Poppis', sans-serif;
 }
 
 .homepage {
@@ -123,6 +124,10 @@ body {
   margin-bottom: 1rem;
 }
 
+.login-label:last-of-type {
+  margin-left: 5px;
+}
+
 .login-input {
   width: 300px;
   padding: 0.5rem;
@@ -180,6 +185,10 @@ body {
   border-radius: 4px;
   border: 1px solid #1464A5;
   font-size: 1.2rem;
+}
+
+.signup-label:nth-of-type(2) {
+  margin-left: 40px;
 }
 
 .signup-button {
@@ -458,10 +467,12 @@ body {
 .all-task-list {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   overflow: auto;
   height: 100%;
   width: 100%;
   list-style: disc;
+  list-style: none;
 }
 
 .added-task {
