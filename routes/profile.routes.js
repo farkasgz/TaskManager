@@ -12,7 +12,6 @@ router.get("/", (req, res) => {
 
 router.get("/logout", async (req, res) => {
     req.session.destroy()
-    console.log(req.session)
     res.redirect("/login")
 })
 
@@ -110,7 +109,6 @@ router.post("/task/:taskId", async (req, res) => {
     try {
         const task = await Task.findById({_id: taskId});
         const updatedBoolean = !task.completed;
-        //console.log(updatedBoolean);
         await Task.findByIdAndUpdate({_id: taskId}, {completed: updatedBoolean})
     } catch (error) {
         console.log(error);
