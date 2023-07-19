@@ -10,8 +10,15 @@ const todoSchema = new Schema(
             type: [Schema.Types.ObjectId],
             ref: "Task"
         },
+
+        startDate: {
+            type: Date,
+            required: true
+        },
+
         deadline: {
-            type: Date,  
+            type: Date,
+            required: true
         }
 
     },

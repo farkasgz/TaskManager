@@ -32,7 +32,7 @@ router.get("/schedule/:date", async (req, res) => {
         const user = await User.findById(req.session.user._id).populate("tasks").select("tasks");
         const userTasks = [];
         user.tasks.forEach(task => {
-            if(task.createdAt < dayAfter && task.deadline > day){
+            if(task.startDate < dayAfter && task.deadline > day){
                 userTasks.push(task);
             }
         })
