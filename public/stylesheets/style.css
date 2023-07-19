@@ -6,6 +6,7 @@
 
 body {
   background-color: #deeffa;
+  font-family: 'Poppis', sans-serif;
 }
 
 .homepage {
@@ -458,10 +459,12 @@ body {
 .all-task-list {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   overflow: auto;
   height: 100%;
   width: 100%;
   list-style: disc;
+  list-style: none;
 }
 
 .added-task {
