@@ -78,8 +78,11 @@ router.get("/todo/:todoId", async (req, res) => {
 })
  /*POST one todo page */
 router.post("/todo/:todoId/delete", async (req, res) => {
-    console.log(req.params)
     try {
+        const {tasks} = await Todo.findById(req.params.todoId);
+        tasks.forEach(async (task) => {
+            await Task.findByIdAndDelete(task)
+        })
         await Todo.findByIdAndDelete(req.params.todoId)
         res.redirect("/home/todo")
     } catch (error) {
