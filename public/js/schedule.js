@@ -22,7 +22,7 @@ const renderCalendar = () => {
     let liTag = "";
 
     for (let i = firstDayOfMonth; i > 0; i--) {
-        liTag += `<li class="inactive">${lastDateOfLastMonth - i + 1}</li>`;
+        liTag += `<li class="inactive prevmonth">${lastDateOfLastMonth - i + 1}</li>`;
     }
 
     for (let i = 1; i <= lastDateOfMonth; i++) {
@@ -31,7 +31,7 @@ const renderCalendar = () => {
     }
 
     for (let i = lastDayOfMonth; i < 6; i++) {
-        liTag += `<li class="inactive">${i - lastDayOfMonth + 1}</li>`;
+        liTag += `<li class="inactive nextmonth">${i - lastDayOfMonth + 1}</li>`;
         
     }
 
@@ -40,9 +40,37 @@ const renderCalendar = () => {
 
     const dayButtons = document.querySelectorAll(".days li");
     dayButtons.forEach(icon => {
-        icon.addEventListener("click", () => {
-            location.href = `/home/schedule/${currYear}${twoDigit(currMonth+1)}${twoDigit(icon.innerText)}`;
-        })
+        console.log(currYear, currMonth);
+
+        if (!icon.classList.contains('inactive')) {
+            icon.addEventListener("click", () => {
+                location.href = `/home/schedule/${currYear}${twoDigit(currMonth+1)}${twoDigit(icon.innerText)}`;
+            })
+        }
+        
+        if (icon.classList.contains('prevmonth')) {
+            if (currMonth === 0) {
+                icon.addEventListener("click", () => {
+                    location.href = `/home/schedule/${currYear-1}12${twoDigit(icon.innerText)}`;
+                })
+            } else {
+                icon.addEventListener("click", () => {
+                    location.href = `/home/schedule/${currYear}${twoDigit(currMonth)}${twoDigit(icon.innerText)}`;
+                })
+            }
+        }
+        
+        if (icon.classList.contains('nextmonth')) {
+            if (currMonth === 11) {
+                icon.addEventListener("click", () => {
+                    location.href = `/home/schedule/${currYear+1}01${twoDigit(icon.innerText)}`;
+                })
+            } else {
+                icon.addEventListener("click", () => {
+                    location.href = `/home/schedule/${currYear}${twoDigit(currMonth+2)}${twoDigit(icon.innerText)}`;
+                })
+            }
+        }
     })
 }
 renderCalendar();
