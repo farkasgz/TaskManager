@@ -146,4 +146,4 @@ Task model
 
 ### Slides
 
-[Slides Link](www.your-slides-url-here.com)
+[Slides Link](https://docs.google.com/presentation/d/1qGDmjmlD66cNXXYCciYIQ4qJWmMyp7CKwO6IWeqxYp4/edit?usp=sharing)
